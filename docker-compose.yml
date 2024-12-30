@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  ecommerce-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8005:8005"
+    volumes:
+      - .:/app
+    command: python3 -m uvicorn main:app --port 8005 --host 0.0.0.0 --reload
